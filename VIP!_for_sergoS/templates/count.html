@@ -1,0 +1,99 @@
+{% extends 'basis.html' %}
+{% block style %}
+<style>
+    .main-container {
+        background-color: #F0F0F0; /* Светло-серый цвет для основного контейнера */
+        padding: 20px;
+        margin: 50px auto;
+        width: 60%;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex; /* Add display:flex to main container for flex layout */
+    }
+
+    .sidebar {
+        width: 20%; /* Set the width of the sidebar */
+        padding: 20px;
+        background-color: #ddd; /* Sidebar background color */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .sidebar img {
+        width: 5%; /* Set the width of the image inside the sidebar to 80% */
+        border-radius: 10px; /* Optionally set border-radius for the image */
+    }
+
+
+    .content {
+        flex: 1; /* Allow the content to take remaining space */
+        padding: 20px;
+        background-color: #FFFFFF; /* White color for the content area */
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+    }
+
+    .result-container {
+        margin-top: 20px;
+    }
+
+    img {
+        width: 80%;
+    }
+</style>
+{% endblock %}
+{% block title %}
+COUNT
+{% endblock %}
+
+{% block body %}
+<div class="main-container">
+    <div class="sidebar">
+        <p>Options:</p>
+        <p>Tips per day</p>
+        <p>Tips per time m</p>
+        <p>Tips per time f</p>
+        <p>Total bill</p>
+        <p>Tips total</p>
+    </div>
+
+    <div class="content">
+        <form action="{{url_for('count')}}" method="post">
+            <p>Select</p>
+            <input type="text" name="function_1" placeholder="input..."/>
+            <button type="submit">submit</button>
+        </form>
+
+        <div class="result-container" id="resultContainer">
+            {{result}}
+            {% if result == 'Tips per day' %}
+            <img src="../static/1.png">
+            {% endif %}
+            {% if result == 'Tips per time m' %}
+            <img src="../static/2.png">
+            {% endif %}
+            {% if result == 'Tips per time f' %}
+            <img src="../static/3.png">
+            {% endif %}
+            {% if result == 'Total bill' %}
+            <img src="../static/4.png">
+            {% endif %}
+            {% if result == 'Total tip' %}
+            <img src="../static/5.png">
+            {% endif %}
+            {% if result == 'Tips total' %}
+            <img src="../static/6.png">
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock %}

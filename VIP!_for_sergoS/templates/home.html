@@ -1,0 +1,88 @@
+{% extends 'basis.html' %}
+{% block style %}
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Arial', sans-serif;
+    }
+
+    header {
+            background-color: #FF5555; /* Более мягкий красный цвет для header */
+            color: #FFFFFF; /* Белый цвет текста в header */
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header a {
+            color: #FFFFFF; /* Белый цвет для ссылок в header */
+            text-decoration: none;
+            margin: 0 20px;
+            padding-bottom: 3px;
+            border-bottom: 2px solid transparent; /* Убрано подчеркивание у ссылок */
+            transition: border-bottom 0.3s ease;
+        }
+
+        header a:hover {
+            border-bottom: 2px solid #FFFFFF; /* Добавлено подчеркивание при наведении на ссылку */
+        }
+    .container {
+        background-color: #FFFFFF; /* Белый цвет для контейнера */
+        color: #FF5555; /* Более мягкий красный цвет текста в контейнере */
+        padding: 20px;
+        margin: 20px auto;
+        width: 80%;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+        background-color: #FF5555; /* Более мягкий красный цвет для кнопки */
+        color: #FFFFFF; /* Белый цвет текста на кнопке */
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    footer {
+        background-color: #FF5555; /* Более мягкий красный цвет для footer */
+        color: #FFFFFF; /* Белый цвет текста в footer */
+        text-align: center;
+        padding: 5px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    footer a {
+        color: #FFFFFF; /* Белый цвет для ссылок в footer */
+        text-decoration: none;
+        margin: 0 10px;
+    }
+</style>
+{% endblock %}
+{% block title %}
+HOME
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <p>Link to my GitHub</p>
+     <a href="https://github.com/SaVinSN"><button>View GIT</button></a>
+</div>
+
+<div class="container">
+    <p>Link to my Streamlite</p>
+    <a href="https://primavera.streamlit.app/"><button>View Streamlite</button></a>
+</div>
+<div class="container">
+    <p>Link to my Flask</p>
+    <a href="/count"><button>View Flask</button></a>
+</div>
+{% endblock %}
