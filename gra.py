@@ -2,28 +2,26 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("./new.csv")
+df = pd.read_csv("new.csv")
 def gr():
-    st1 = df.loc[df["sex"] == "Female"]
-    st = st1.sort_values(by=["total_bill", "tip", "tip_%_bill", "tip_per_person"], ascending=True)
-    st2 = df.loc[df["sex"] == "Male"]
-    stI = st2.sort_values(by=["total_bill", "tip", "tip_%_bill", "tip_per_person"], ascending=True)
     fig, ax = plt.subplots()
-    plt.plot(st["total_bill"], st1["tip"], color='purple')
-    plt.plot(stI["total_bill"], st2["tip"], color='blue')
-    plt.xlabel("total_bill")
-    plt.ylabel("tip")
-    plt.axhline(y=df['tip'].mean(), color='green', linestyle='--', linewidth=1.2)
-
-    k1 = str(st1['tip'].mean())
-    k2 = str(st2['tip'].mean())
-
-    plt.subplot(15, 2, 4)
-    plt.axis(False)
-    plt.text(0, 0.5, 'Female : ' + k2[:6] + '(purple)')
-    plt.subplot(10, 2, 4)
-    plt.axis(False)
-    plt.text(0, 0.5, 'Male : ' + k1[:6] + '(blue)')
+    st1 = df.loc[df["day"] == "Sat"]
+    st2 = df.loc[df["day"] == "Sun"]
+    st3 = df.loc[df["day"] == "Thur"]
+    st4 = df.loc[df["day"] == "Fri"]
+    
+    a1 = st1["tip_%_bill"].mean()
+    a2 = st2["tip_%_bill"].mean()
+    a3 = st3["tip_%_bill"].mean()
+    a4 = st3["tip_%_bill"].mean()
+    
+    x = ['Thur', 'Fri', 'Sat', 'Sun']
+    y = [a3, a4, a1, a2]
+    
+    plt.bar(x, y, alpha=0.5, color=['blue', 'green', 'red', 'orange'])
+    plt.xlabel('day')
+    plt.plot(x, y, color='purple', marker='o', markersize=7)
+    plt.ylabel('%_of_bill')
     return fig
 
 
