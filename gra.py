@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("/Users/sergeybudygin/PycharmProjects/pythonProject1/streamlite/new.csv")
+df = pd.read_csv("new.csv")
 def gr():
     st1 = df.loc[df["sex"] == "Female"]
     st = st1.sort_values(by=["total_bill", "tip", "tip_%_bill", "tip_per_person"], ascending=True)
